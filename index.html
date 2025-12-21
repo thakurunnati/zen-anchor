@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Anchor</title>
+    <link rel="stylesheet" href="loco.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background-blobs">
+        <img src="left blob.jpeg" class="blob blob-left" alt="">
+        <img src="right blob.jpeg" class="blob blob-right" alt="">
+    </div>
+
+    <div id="minicircle"></div>
+
+    <div id="main">
+        <div id="hero">
+            <div id="nav">
+                <a href="#hero">Home</a>
+                <a href="#tracker-section">Tracker</a>
+                <a href="#focus-mode-section">Timer</a>
+                <a href="#progress-page">Progress</a>
+            </div>
+            <div id="streakbadge">
+                🔥<span id="streakcount">0</span>
+            </div>
+            <div id="heading">
+                <div class="bounding">
+                     <h1 class="boundingelem">Zen</h1>
+                </div>
+               <div class="blocktext">
+                    <div class="bounding">
+                        <h1 class="boundingelem" id="secondh1">Anchor</h1>
+                    </div>
+                    <div class="bounding">
+                        <h5 class="boundingelem">KILL FOMO.</h5>
+                    </div>
+                </div>
+            </div>
+            <div id="herofooter">
+                <h6>focus <i class="ri-arrow-right-up-line"></i></h6>
+                <h6>clarity <i class="ri-arrow-right-up-line"></i></h6>
+                <h6>growth <i class="ri-arrow-right-up-line"></i></h6>
+                <div id="iconset"></div>
+                <div class="circle"><i class="ri-arrow-down-line"></i></div>
+                <div class="circle"><i class="ri-arrow-down-line"></i></div>
+            </div>
+         </div>
+         <div id="second">
+           <div class="element"><h1>skill focus tracker</h1></div>
+           <div class="element"><h1>focus timer</h1></div>
+           <div class="element lastelement"><h1>anchor bot</h1></div>
+           <div class="element"><h1>cost counter</h1></div>
+         </div>
+         <div id="about">
+            <div id="intro">
+               <h2>Are you overwhelmed by comparison, notifications, and endless digital pressure?</h2>
+               <p>Zen Anchor project combats the Fear of Missing Out (FOMO) by offering tools like a dedicated chatbot and a skill tracker and much more. It's purpose is to provide users with a mental "anchor," helping them shift their focus from external comparisons to personal progress and intrinsic value.</p>
+            </div>   
+         </div>
+
+         <div id="text">
+            <h5>You’re not alone — millions feel this way every day.</h5>
+         </div>
+         <div id="chatbot-area">
+             <h2>AnchorBot: Reflect & Redirect</h2>
+             <div class="chat-layout">
+                 <div id="chatbot-container">
+                     <div class="chat-heading">
+                        <h3>zen assistent</h3>
+                    </div>
+                    <div id="chat-body">
+                        <!-- <div class="message bot-msg">Hello! How can I help you today?</div> -->
+                    </div>
+                    <div id="chat-inputarea">
+                        <input type="text" id="chat-input" placeholder="let's talk">
+                        <button id="send-btn">send</button>
+                    </div>
+                 </div>
+                 <div id="info-section">
+                    <h3>about zen assistant</h3>
+                    <p>An AI assistant bubble for mindful check-ins and goal-scaffolding.<br>Convert your FOMO triggers into positive actions.</p>
+                 </div>
+                 <div id="chatbot-footer">
+                     <h6>talk <i class="ri-arrow-right-up-line"></i></h6>
+                     <h6>out <i class="ri-arrow-right-up-line"></i></h6>
+                     <h6>loud <i class="ri-arrow-right-up-line"></i></h6>
+                 </div>
+             </div>
+         </div>
+         <div id="tracker-section">
+           <div class="tracker-intro">
+                The skill focus tracker helps you commit to meaningful progress. The comparison cost counter shows what distractions really cost.
+           </div>
+           <div class="bottom-area">
+              <div id="skill-box">
+                <h3 class="task-title">skill focus tracker</h3>
+                <p class="tracker-desc">Pick a task, add your tasks too and complete one thing at a time.</p>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <label>
+                            <input type="checkbox" class="task-check"> watch one tutorial
+                        </label>
+                        <button class="delete-btn done-btn">✔ done</button>
+                        <button class="delete-btn remove-btn">remove</button>
+
+                    </li>
+                    <li class="task-item">
+                        <label>
+                            <input type="checkbox" class="task-check"> practice for 20 min
+                        </label>
+                        <button class="delete-btn done-btn">✔ done</button>
+                        <button class="delete-btn remove-btn">remove</button>
+                    </li>
+                </ul>
+                <div class="add-task-row">
+                    <input type="text" id="new-task-input" placeholder="add new task!">
+                    <button class="add-btn">Add</button>
+                </div>
+                <div id="progress-container">
+                  <div id="progress-bar"></div>
+                </div>
+                <p id="progress-text">0% completed</p>
+              </div>
+              <div id="cost-counter">
+                <h3 class="task-title">Comparison cost counter</h3>
+                <p class="cost-desc">Track wasted time and see what meaningful progress you could have made instead.</p>
+                <div class="cost-input-row">
+                    <input type="number" id="wasted-time" placeholder="minutes wasted....">
+                    <button class="log-btn">log</button>
+                    <div class="cost-result-card">
+                        <div class="result-value">0 min logged</div>
+                        <p class="nothing">to compare yet, so you're doing great</p>
+                        <div class="suggestion-list-hidden">
+
+                            <ul id="suggestion-results"></ul>
+                        </div>
+                    </div>
+                </div>
+              </div>
+           </div>
+         </div>
+         <div id="focus-mode-section">
+            <div id="focus-title">
+                <h4>A <br>calmer way <br> to get things done.</h4>         
+            </div>
+            <div id="focus-intro">
+                <p>Use structured Pomodoro cycles or create your own timer to maintain steady, mindful progress.</p>
+            </div>
+
+            <div id="timer">
+                <h2>focus timer</h2>
+                <div style="flex:1; min-width:220px;">
+                    <label for="goal-selector" style="display:block; margin-bottom:5px; color:#ffffff; font-size:0.9em;">Apply focus time to:</label>
+                    <select id="goal-selector" style="width:55%; padding:10px; border-radius:6px; color:black; background-color:#fff; border:1px solid #2c2c34;">
+                        <option value="">-- Add a goal in the tracker first --</option>
+                    </select>
+                </div>
+                <div id="timer-tabs">
+                    <button class="tab active tab-active" data-tab="pomodoro">Pomodoro</button>
+                    <button class="tab tab-active" data-tab="manual">Manual Timer</button>
+                </div>
+                <div id="pomodoro-timer" class="timer-screen">
+                    <h3 id="pomodoro-display">25:00</h3><br><br>
+                    <div class="timer-buttons">
+                        <button id="pomodoro-start">start</button>
+                        <button id="pomodoro-pause">pause</button>
+                        <button id="pomodoro-reset">reset</button>
+                    </div>
+                </div>
+                <div id="manual-timer" class="timer-screen">
+                    <h3 id="manual-display">00:00</h3><br>
+                    <input type="number" id="manual-hours" placeholder="hours" min="0"><br><br>
+                    <input type="number" id="manual-mins" placeholder="minutes" min="0"><br>
+                    <div class="timer-buttons">
+                        <button id="manual-start">Start</button>
+                        <button id="manual-pause">Pause</button>
+                        <button id="manual-reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="focus-footer">
+                <h6>stay <i class="ri-arrow-right-up-line"></i></h6>
+                <h6>focused <i class="ri-arrow-right-up-line"></i></h6>
+                <h6>buddy <i class="ri-arrow-right-up-line"></i></h6>
+           </div>
+         </div>
+         <div class="progress-page">
+    <h1>Your Progress</h1>
+    <p class="subtext">See how consistently you've been using the tools</p>
+
+    <div class="progress-grid">
+      <div class="progress-card">
+        <h3>Focus Time</h3>
+        <div class="value">0 min</div>
+      </div>
+      <div class="progress-card">2
+        <h3>Consistency Streak</h3>
+        <div class="value">0 days</div>
+      </div>
+      <div class="progress-card">
+        <h3>Tools Used</h3>
+        <div class="value">0</div>
+      </div>
+      <div class="progress-card">
+        <h3>Active Days</h3>
+        <div class="value">0</div>
+      </div>
+    </div>
+
+    <div class="journal">
+      <h2>Daily Journal</h2>
+      <textarea placeholder="Write about your focus, distractions, or thoughts..."></textarea>
+      <button>Save Entry</button>
+
+      <div class="entries">
+        <div class="entry">No entries yet.</div>
+      </div>
+    </div>
+  </div>
+
+        <section class="note-to-self">
+          <h1>Note to Self</h1>
+          <p>You’re doing enough. You’re growing at your own pace. And you don’t have to compare your journey with anyone else’s. Keep taking small steps forward — they’re leading somewhere beautiful.</p>
+        </section>
+
+        <footer class="footer">
+          <p>Made with ❤️ to help you focus on yourself.</p>
+        </footer>
+
+    </div>
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
