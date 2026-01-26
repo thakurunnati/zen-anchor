@@ -512,8 +512,11 @@ const alarmSound = new Audio("alert.opus");
 
 let pomoSeconds = 25 * 60;
 let manualSeconds = 0;
+let manualInitialSeconds = 0;
+
 let pomoInterval = null;
 let manualInterval = null;
+
 
 function formatTime(sec) {
     const m = Math.floor(sec / 60);
@@ -559,13 +562,14 @@ pomoStart.addEventListener("click", () => {
             clearInterval(pomoInterval);
             pomoInterval = null;
             alarmSound.play();
+            alert("🎉 Well done! Pomodoro completed. Take a short break 💪");
             markSelectedTaskDone();
             // === PROGRESS TRACK ===
 let data = getProgressData();
-data.focusMinutes += 25;
-data.toolsUsed.focus += 1;
-markActiveDay(data);
-saveProgressData(data);
+    data.completedTasks += 1;
+    data.toolsUsed.tasks += 1;
+    markActiveDay(data);
+    saveProgressData(data);
 
         }
     }, 1000);
@@ -595,7 +599,8 @@ manualStart.addEventListener("click", () => {
             return;
         }
 
-        manualSeconds = h * 3600 + m * 60;
+        manualInitialSeconds = h * 3600 + m * 60;   // ✅ store original time
+        manualSeconds = manualInitialSeconds;
     }
 
     updateManualDisplay();
@@ -608,16 +613,17 @@ manualStart.addEventListener("click", () => {
             clearInterval(manualInterval);
             manualInterval = null;
             alarmSound.play();
-            // === PROGRESS TRACK ===
-let data = getProgressData();
-data.focusMinutes += Math.floor((manualSeconds + 1) / 60);
-data.toolsUsed.focus += 1;
-markActiveDay(data);
-saveProgressData(data);
+           alert("✅ Great job! You completed your focus session 🚀");
 
+            let data = getProgressData();
+            data.focusMinutes += Math.floor(manualInitialSeconds / 60);
+            data.toolsUsed.focus += 1;
+            markActiveDay(data);
+            saveProgressData(data);
         }
     }, 1000);
 });
+
 
 manualPause.addEventListener("click", () => {
     clearInterval(manualInterval);
@@ -642,7 +648,7 @@ const taskList = document.querySelector('.task-list');
 const progressBar = document.getElementById('progress-bar');
 const progressText = document.getElementById('progress-text');
 
-// FIXED: recalculate tasks dynamically 
+
 function updateProgress() {
     const tasks = document.querySelectorAll('.task-item');
     let completed = 0;
@@ -678,11 +684,19 @@ function createTask(text) {
     `;
 
     li.querySelector('.done-btn').onclick = () => {
-        li.style.opacity = '0.6';
-        li.querySelector('.task-check').checked = true;
-        updateProgress();
-        updateGoalDropdown();
-    };
+    li.style.opacity = '0.6';
+    li.querySelector('.task-check').checked = true;
+    updateProgress();
+    updateGoalDropdown();
+
+    // ✅ Track progress correctly for new tasks
+    let data = getProgressData();
+    data.completedTasks += 1;
+    data.toolsUsed.tasks += 1;
+    markActiveDay(data);
+    saveProgressData(data);
+};
+
 
     li.querySelector('.remove-btn').onclick = () => {
         li.remove();
