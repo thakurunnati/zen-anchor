@@ -1,7 +1,11 @@
 🌿 Zen Anchor – From Distraction to Focus
+
+
 🔗 Project Summary
  Zen Anchor is a self-awareness driven productivity platform that helps users overcome distraction and anxiety by converting FOMO (Fear of Missing Out) into focused action through timers, progress tracking, journaling, and guided support.
  Rather than acting like a typical task manager, Zen Anchor focuses on building awareness, consistency, and sustainable productivity habits.
+
+
 
 🧠 Problem Statement
 Modern users want to grow and stay productive, but constant distractions, comparison, and information overload create FOMO. This leads to:
@@ -10,6 +14,8 @@ Inconsistent focus
 Lack of visibility into real progress
 Repeating the same distraction patterns
 Most productivity tools optimize only time or task management, but rarely address behavior and mindset.
+
+
 
 💡 Solution
 Zen Anchor is designed as a focus companion, not just a productivity tool.
