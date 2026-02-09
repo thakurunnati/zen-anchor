@@ -123,7 +123,7 @@ body{
 }
 #herofooter h6{
     text-transform: uppercase;
-    font-size: 1vw;
+    font-size: clamp(0.7rem, 1vw, 1rem);
 }
 #herofooter .circle{
     display: flex;
@@ -137,10 +137,10 @@ body{
 /* second page */
 #second{
     color: #fff;
-    padding-right: 10vw; 
-    padding-top: 200px;
+    padding: 20px 5vw 20px 5vw;
     width: 100%;
-    height: 100vh;
+    min-height: 20vh;
+    position: relative;
 }
 .element{
     position: relative;
@@ -148,12 +148,12 @@ body{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 4vw, 3vw;
+    padding: 2vw 2vw;
     border-top: 1px solid #888;
 }
 .element h1{
     text-transform: uppercase;
-    font-size: 5vw;
+    font-size: clamp(2rem, 5vw, 4rem);
     opacity: .7;
 }
 .lastelement{
@@ -168,7 +168,8 @@ body{
     padding: 5vw 5vw;
     padding-left: 40vw;
     width: 100%;
-    height: 60vh;
+    min-height: 60vh;
+    position: relative;
 }
 #intro h2{
     font-size: 40px;    
@@ -786,3 +787,128 @@ body{
       font-size:0.9rem;
       color:#ccc;
     }
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    #nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+    }
+    
+    #nav a {
+        font-size: 14px;
+    }
+    
+    #streakbadge {
+        top: 10px;
+        right: 20px;
+        font-size: 12px;
+    }
+    
+    #heading h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        margin-left: 15px;
+    }
+    
+    #heading #secondh1 {
+        margin-left: 100px;
+    }
+    
+    .bottom-area {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #skill-box, #cost-counter {
+        width: 100%;
+    }
+    
+    #chatbot-container {
+        width: 95vw;
+        height: 70vh;
+    }
+    
+    .chat-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #info-section {
+        width: 100%;
+    }
+    
+    #timer {
+        width: 95vw;
+        padding: 1rem;
+    }
+    
+    .progress-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    #focus-mode-section {
+        padding: 10px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #focus-title h4 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
+    
+    .element {
+        padding: 2rem 1rem;
+    }
+    
+    #about {
+        padding: 2rem;
+        padding-left: 1rem;
+        height: auto;
+        min-height: 60vh;
+    }
+    
+    #intro h2 {
+        font-size: 1.5rem;
+    }
+    
+    #about p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #herofooter {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #herofooter h6 {
+        font-size: 0.8rem;
+    }
+    
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .add-task-row {
+        flex-direction: column;
+    }
+    
+    .cost-input-row {
+        flex-direction: column;
+    }
+    
+    .timer-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .timer-buttons button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}

@@ -9,7 +9,8 @@ function getProgressData() {
       anchorbot: 0,
       costcounter: 0
     },
-    activeDays: []
+    activeDays: [],
+    consecutiveDays: 0
   };
 }
 
@@ -19,9 +20,30 @@ function saveProgressData(data) {
 
 function markActiveDay(data) {
   const today = new Date().toDateString();
+  
+  data.activeDays = [...new Set(data.activeDays)];
+  data.activeDays.sort((a, b) => new Date(a) - new Date(b));
+  
   if (!data.activeDays.includes(today)) {
     data.activeDays.push(today);
   }
+  
+  let consecutiveDays = 0;
+  const todayDate = new Date();
+  
+  for (let i = 0; i < 365; i++) {
+    const checkDate = new Date(todayDate);
+    checkDate.setDate(todayDate.getDate() - i);
+    const dateString = checkDate.toDateString();
+    
+    if (data.activeDays.includes(dateString)) {
+      consecutiveDays++;
+    } else {
+      break;
+    }
+  }
+  
+  data.consecutiveDays = consecutiveDays;
 }
 
 
@@ -57,7 +79,6 @@ window.addEventListener("load", () => {
   ScrollTrigger.refresh();
   locoScroll.update();
 });
-//circle mouseover 
 function circleMouseFollower() {
     window.addEventListener("mousemove", function(dets){
         document.querySelector("#minicircle").style.left = dets.clientX + "px";
@@ -380,6 +401,7 @@ let data = getProgressData();
 data.toolsUsed.anchorbot += 1;
 markActiveDay(data);
 saveProgressData(data);
+updateProgressDisplay(); 
 
             });
         }
@@ -468,15 +490,18 @@ let data = getProgressData();
 data.toolsUsed.costcounter += 1;
 markActiveDay(data);
 saveProgressData(data);
+updateProgressDisplay(); 
 
         resultValue.innerHTML = `
-            You lost <strong>${minutes} minutes</strong> this week 😞<br>
+            <strong>${minutes} min</strong> wasted this week 😞<br>
+            <small style="font-size: 0.8rem; opacity: 0.8;">
             That equals:<br>
-            • ${Math.floor(minutes / 30)} JavaScript topics<br>
+            • ${Math.floor(minutes / 30)} JS topics<br>
             • ${Math.floor(minutes / 20)} React components<br>
             • ${Math.floor(minutes / 10)} short walks<br>
             • ${Math.floor(minutes / 15)} meditation sessions<br>
             <br><strong>Suggestion:</strong> ${getSuggestion(minutes)}
+            </small>
         `;
 
         nothingText.style.display = "none";
@@ -508,7 +533,6 @@ const pomoScreen = document.getElementById("pomodoro-timer");
 const manualScreen = document.getElementById("manual-timer");
 
 const goalSelector = document.getElementById("goal-selector");
-const alarmSound = new Audio("alert.opus");
 
 let pomoSeconds = 25 * 60;
 let manualSeconds = 0;
@@ -516,6 +540,42 @@ let manualInitialSeconds = 0;
 
 let pomoInterval = null;
 let manualInterval = null;
+
+// alarm sound 
+function playAlarmSound() {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 800;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.5);
+    
+    setTimeout(() => {
+        const osc2 = audioContext.createOscillator();
+        const gain2 = audioContext.createGain();
+        
+        osc2.connect(gain2);
+        gain2.connect(audioContext.destination);
+        
+        osc2.frequency.value = 800;
+        osc2.type = 'sine';
+        
+        gain2.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        
+        osc2.start(audioContext.currentTime);
+        osc2.stop(audioContext.currentTime + 0.5);
+    }, 600);
+}
 
 
 function formatTime(sec) {
@@ -561,15 +621,15 @@ pomoStart.addEventListener("click", () => {
         } else {
             clearInterval(pomoInterval);
             pomoInterval = null;
-            alarmSound.play();
+            playAlarmSound();
             alert("🎉 Well done! Pomodoro completed. Take a short break 💪");
             markSelectedTaskDone();
-            // === PROGRESS TRACK ===
 let data = getProgressData();
     data.completedTasks += 1;
     data.toolsUsed.tasks += 1;
     markActiveDay(data);
     saveProgressData(data);
+    updateProgressDisplay();
 
         }
     }, 1000);
@@ -588,6 +648,11 @@ pomoReset.addEventListener("click", () => {
 });
 
 manualStart.addEventListener("click", () => {
+    if (!goalSelector.value) {
+        alert("Please select a goal first.");
+        return;
+    }
+
     if (manualInterval) return;
 
     if (manualSeconds === 0) {
@@ -612,14 +677,16 @@ manualStart.addEventListener("click", () => {
         } else {
             clearInterval(manualInterval);
             manualInterval = null;
-            alarmSound.play();
+            playAlarmSound();
            alert("✅ Great job! You completed your focus session 🚀");
+            markSelectedTaskDone();
 
             let data = getProgressData();
             data.focusMinutes += Math.floor(manualInitialSeconds / 60);
             data.toolsUsed.focus += 1;
             markActiveDay(data);
             saveProgressData(data);
+            updateProgressDisplay();
         }
     }, 1000);
 });
@@ -640,7 +707,6 @@ manualReset.addEventListener("click", () => {
 });
 
 //skill focus tracker
-
 const addBtn = document.querySelector('.add-btn');
 const newTaskInput = document.getElementById('new-task-input');
 const taskList = document.querySelector('.task-list');
@@ -668,6 +734,15 @@ function updateProgress() {
     progressText.textContent = `${percent}% completed`;
 }
 
+function trackTaskCompletion() {
+    let data = getProgressData();
+    data.completedTasks += 1;
+    data.toolsUsed.tasks += 1;
+    markActiveDay(data);
+    saveProgressData(data);
+    updateProgressDisplay();
+}
+
 function createTask(text) {
     const li = document.createElement('li');
     li.className = 'task-item';
@@ -688,13 +763,7 @@ function createTask(text) {
     li.querySelector('.task-check').checked = true;
     updateProgress();
     updateGoalDropdown();
-
-    // ✅ Track progress correctly for new tasks
-    let data = getProgressData();
-    data.completedTasks += 1;
-    data.toolsUsed.tasks += 1;
-    markActiveDay(data);
-    saveProgressData(data);
+    trackTaskCompletion();
 };
 
 
@@ -715,13 +784,7 @@ document.querySelectorAll(".task-item").forEach(task => {
         doneBtn.addEventListener("click", () => {
             task.style.opacity = "0.6";
             if (checkbox) checkbox.checked = true;
-            // === PROGRESS TRACK ===
-let data = getProgressData();
-data.completedTasks += 1;
-data.toolsUsed.tasks += 1;
-markActiveDay(data);
-saveProgressData(data);
-
+            trackTaskCompletion();
             updateProgress();
         });
     }
@@ -736,6 +799,7 @@ function bindPermanentTasks() {
             doneBtn.onclick = () => {
                 task.style.opacity = '0.6';
                 if (checkbox) checkbox.checked = true;
+                trackTaskCompletion();
                 updateProgress();
                 updateGoalDropdown();
             };
@@ -752,8 +816,6 @@ addBtn.addEventListener('click', () => {
     updateProgress();
     updateGoalDropdown();
 });
-
-//goal drop down
 
 function updateGoalDropdown() {
     const prev = goalSelector.value;
@@ -785,39 +847,68 @@ bindPermanentTasks();
 updateProgress();
 updateGoalDropdown();
 
-/************************************
- PROGRESS PAGE RENDER (SAFE MODE)
-*************************************/
+//progress page
 const progressCards = document.querySelectorAll(".progress-card");
 
-if (progressCards.length > 0) {
-  const data = JSON.parse(localStorage.getItem("progressData"));
+function updateProgressDisplay() {
+  if (progressCards.length > 0) {
+    try {
+      const data = getProgressData();
 
-  if (data) {
-    // Focus Time
-    progressCards[0].querySelector(".value").innerText =
-      `${data.focusMinutes} min`;
+      if (data) {
+        if (progressCards[0]) {
+          progressCards[0].querySelector(".value").innerText =
+            `${data.focusMinutes || 0} min`;
+        }
 
-    // Consistency / Active Days
-    progressCards[1].querySelector(".value").innerText =
-      `${data.activeDays.length} days`;
+        if (progressCards[1]) {
+          progressCards[1].querySelector(".value").innerText =
+            `${(data.consecutiveDays && data.consecutiveDays) || 0} days`;
+        }
 
-    // Total Tools Used
-    const totalToolsUsed =
-      data.toolsUsed.focus +
-      data.toolsUsed.tasks +
-      data.toolsUsed.anchorbot +
-      data.toolsUsed.costcounter;
+        const totalToolsUsed =
+          (data.toolsUsed && data.toolsUsed.focus || 0) +
+          (data.toolsUsed && data.toolsUsed.tasks || 0) +
+          (data.toolsUsed && data.toolsUsed.anchorbot || 0) +
+          (data.toolsUsed && data.toolsUsed.costcounter || 0);
 
-    progressCards[2].querySelector(".value").innerText = totalToolsUsed;
+        if (progressCards[2]) {
+          progressCards[2].querySelector(".value").innerText = totalToolsUsed;
+        }
 
-    // Completed Tasks
-    progressCards[3].querySelector(".value").innerText =
-      data.completedTasks;
+        // Completed Tasks
+        if (progressCards[3]) {
+          progressCards[3].querySelector(".value").innerText =
+            data.completedTasks || 0;
+        }
+      }
+    } catch (error) {
+      console.error("Error loading progress data:", error);
+      progressCards.forEach((card, index) => {
+        const valueElement = card.querySelector(".value");
+        if (valueElement) {
+          valueElement.innerText = "0";
+        }
+      });
+    }
   }
 }
 
-//journal section
+updateProgressDisplay();
+
+window.addEventListener('storage', (e) => {
+  if (e.key === 'progressData') {
+    updateProgressDisplay();
+  }
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    updateProgressDisplay();
+  }
+});
+
+
 const journalBox = document.querySelector(".journal");
 
 if (journalBox) {
