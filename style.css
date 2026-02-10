@@ -795,7 +795,6 @@ body{
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -853,7 +852,7 @@ body {
 }
 
 #heading h1 {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: 4rem;
     margin: 0;
     line-height: 0.9;
 }
@@ -897,7 +896,7 @@ body {
 }
 
 .element h1 {
-    font-size: clamp(1.25rem, 6vw, 2rem);
+    font-size: 2rem;
     margin: 0;
 }
 
@@ -910,7 +909,7 @@ body {
 }
 
 #intro h2 {
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    font-size: 1.75rem;
     margin-bottom: 1rem;
 }
 
@@ -937,7 +936,7 @@ body {
 }
 
 #chatbot-area h2 {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -975,13 +974,13 @@ body {
 }
 
 .task-title {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: 2rem;
     text-align: center;
     margin-bottom: 1rem;
 }
 
 .tracker-intro {
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    font-size: 1.75rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -1020,7 +1019,7 @@ body {
 }
 
 #focus-title h4 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -1038,7 +1037,7 @@ body {
 }
 
 #pomodoro-timer h3, #manual-display {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: 3rem;
 }
 
 .timer-buttons {
@@ -1058,7 +1057,7 @@ body {
 }
 
 .progress-page h1 {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -1085,7 +1084,7 @@ body {
 }
 
 .progress-card .value {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: 2rem;
 }
 
 .journal {
@@ -1093,7 +1092,7 @@ body {
 }
 
 .journal h2 {
-    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    font-size: 1.75rem;
     margin-bottom: 1rem;
 }
 
