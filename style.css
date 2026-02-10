@@ -203,7 +203,7 @@ body{
 }
 #chatbot-area h2{
     color: #888;
-    font-size: 5vw;
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 .chat-layout{
     display: flex;
