@@ -788,7 +788,7 @@ body{
       color:#ccc;
     }
 
-/* Base Mobile Styles (320px and up) */
+/* Base Styles */
 * {
     box-sizing: border-box;
 }
@@ -803,10 +803,10 @@ body {
     line-height: 1.5;
 }
 
-/* Navigation - Mobile First */
+/* Navigation */
 #nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.75rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.9);
@@ -828,7 +828,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Streak Badge - Mobile */
+/* Streak Badge */
 #streakbadge {
     position: fixed;
     top: 1rem;
@@ -839,7 +839,7 @@ body {
     z-index: 101;
 }
 
-/* Hero Section - Mobile */
+/* Hero Section */
 #hero {
     padding: 2rem 1rem;
     min-height: 100vh;
@@ -884,7 +884,7 @@ body {
     display: none;
 }
 
-/* Second Section - Mobile */
+/* Second Section */
 #second {
     padding: 2rem 1rem;
     min-height: auto;
@@ -901,7 +901,7 @@ body {
     margin: 0;
 }
 
-/* About Section - Mobile */
+/* About Section */
 #about {
     padding: 2rem 1rem;
     flex-direction: column;
@@ -920,7 +920,7 @@ body {
     max-width: 100%;
 }
 
-/* Text Section - Mobile */
+/* Text Section */
 #text {
     padding: 1.5rem 1rem;
     text-align: center;
@@ -930,7 +930,7 @@ body {
     font-size: 0.875rem;
 }
 
-/* Chatbot - Mobile */
+/* Chatbot */
 #chatbot-area {
     padding: 2rem 1rem;
     min-height: auto;
@@ -968,7 +968,7 @@ body {
     margin: 0.25rem;
 }
 
-/* Tracker Section - Mobile */
+/* Tracker Section */
 #tracker-section {
     padding: 2rem 1rem;
     min-height: auto;
@@ -1013,7 +1013,7 @@ body {
     gap: 1rem;
 }
 
-/* Timer Section - Mobile */
+/* Timer Section */
 #focus-mode-section {
     padding: 2rem 1rem;
     min-height: auto;
@@ -1052,7 +1052,7 @@ body {
     font-size: 0.875rem;
 }
 
-/* Progress Section - Mobile */
+/* Progress Section */
 .progress-page {
     padding: 2rem 1rem;
 }
@@ -1106,394 +1106,4 @@ textarea {
 button {
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
-}
-
-/* Tablet Styles (768px and up) */
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-    
-    #nav {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem 2rem;
-        background: transparent;
-        position: static;
-    }
-    
-    #nav a {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    #streakbadge {
-        top: 1.5rem;
-        right: 2rem;
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    #heading {
-        margin-top: 6rem;
-        text-align: left;
-    }
-    
-    #heading h1 {
-        font-size: clamp(3rem, 8vw, 5rem);
-    }
-    
-    #heading #secondh1 {
-        margin-left: 8rem;
-        display: inline;
-        margin-top: 0;
-    }
-    
-    #herofooter {
-        position: absolute;
-        bottom: 3%;
-        left: 2vw;
-        right: 2vw;
-        display: flex;
-        justify-content: space-between;
-        padding: 0;
-    }
-    
-    #herofooter h6 {
-        font-size: 0.875rem;
-    }
-    
-    #herofooter .circle {
-        display: flex;
-        width: 25px;
-        height: 25px;
-    }
-    
-    #second {
-        padding: 3rem 5vw;
-    }
-    
-    .element {
-        padding: 2rem 3vw;
-        text-align: left;
-    }
-    
-    .element h1 {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-    }
-    
-    #about {
-        padding: 3rem 5vw;
-        padding-left: 40vw;
-        flex-direction: row;
-        text-align: left;
-    }
-    
-    #intro h2 {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    
-    #about p {
-        font-size: 1.125rem;
-    }
-    
-    #chatbot-area {
-        padding: 3rem 2vw;
-    }
-    
-    #chatbot-area h2 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        text-align: left;
-    }
-    
-    .chat-layout {
-        flex-direction: row;
-        gap: 3rem;
-    }
-    
-    #chatbot-container {
-        width: 80vh;
-        height: 70vh;
-        max-height: none;
-    }
-    
-    #info-section {
-        width: 250px;
-        text-align: left;
-    }
-    
-    .tracker-section {
-        padding: 2rem 2vw;
-    }
-    
-    .bottom-area {
-        flex-direction: row;
-        gap: 3rem;
-    }
-    
-    #skill-box, #cost-counter {
-        width: 48%;
-    }
-    
-    .task-item {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .add-task-row {
-        flex-direction: row;
-        gap: 1rem;
-    }
-    
-    .cost-input-row {
-        flex-direction: row;
-        gap: 1rem;
-    }
-    
-    #focus-mode-section {
-        padding: 3rem 2vw;
-    }
-    
-    #focus-title h4 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        text-align: left;
-    }
-    
-    #timer {
-        width: 80%;
-        margin: 0 auto 2rem;
-    }
-    
-    #pomodoro-timer, #manual-timer {
-        width: 85%;
-        margin: 0 auto 1.5rem;
-    }
-    
-    #pomodoro-timer h3, #manual-display {
-        font-size: clamp(2.5rem, 6vw, 3.5rem);
-    }
-    
-    .timer-buttons {
-        display: flex;
-        gap: 1rem;
-    }
-    
-    .progress-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .progress-card {
-        padding: 2rem;
-    }
-    
-    .progress-card h3 {
-        font-size: 1rem;
-    }
-    
-    .progress-card .value {
-        font-size: clamp(2rem, 5vw, 2.5rem);
-    }
-}
-
-
-@media (min-width: 1024px) {
-    html {
-        font-size: 16px;
-    }
-    
-    #nav {
-        padding: 1.25rem 3rem;
-    }
-    
-    #nav a {
-        font-size: 1.125rem;
-    }
-    
-    #streakbadge {
-        top: 1.5rem;
-        right: 3rem;
-        font-size: 1rem;
-    }
-    
-    #heading {
-        margin-top: 8rem;
-    }
-    
-    #heading h1 {
-        font-size: clamp(4rem, 10vw, 8rem);
-    }
-    
-    #heading #secondh1 {
-        margin-left: 12rem;
-    }
-    
-    #herofooter h6 {
-        font-size: 1rem;
-    }
-    
-    #herofooter .circle {
-        width: 30px;
-        height: 30px;
-    }
-    
-    #second {
-        padding: 4rem 10vw;
-    }
-    
-    .element {
-        padding: 3rem 5vw;
-    }
-    
-    .element h1 {
-        font-size: clamp(2rem, 5vw, 4rem);
-    }
-    
-    #about {
-        padding: 5vw 5vw;
-        padding-left: 40vw;
-    }
-    
-    #intro h2 {
-        font-size: clamp(2rem, 5vw, 3rem);
-    }
-    
-    #about p {
-        font-size: 1.25rem;
-    }
-    
-    #chatbot-area {
-        padding: 4rem 3vw;
-    }
-    
-    #chatbot-area h2 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-    }
-    
-    .chat-layout {
-        gap: 4rem;
-    }
-    
-    #chatbot-container {
-        width: 80vh;
-        height: 70vh;
-    }
-    
-    .tracker-section {
-        padding: 2.5rem 3vw;
-    }
-    
-    .task-title {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
-    
-    .tracker-intro {
-        font-size: clamp(1.75rem, 5vw, 3rem);
-    }
-    
-    #focus-mode-section {
-        padding: 4rem 3vw;
-    }
-    
-    #focus-title h4 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-    }
-    
-    #timer {
-        width: 70%;
-    }
-    
-    #pomodoro-timer, #manual-timer {
-        width: 85%;
-    }
-    
-    #pomodoro-timer h3, #manual-display {
-        font-size: clamp(3rem, 7vw, 4rem);
-    }
-    
-    .progress-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
-    }
-    
-    .progress-card {
-        padding: 2.5rem;
-    }
-    
-    .progress-card h3 {
-        font-size: 1.125rem;
-    }
-    
-    .progress-card .value {
-        font-size: clamp(2.5rem, 6vw, 3rem);
-    }
-}
-
-
-@media (min-width: 1440px) {
-    html {
-        font-size: 18px;
-    }
-    
-    #nav {
-        padding: 1.5rem 4rem;
-    }
-    
-    #nav a {
-        font-size: 1.25rem;
-    }
-    
-    #heading h1 {
-        font-size: clamp(5rem, 12vw, 10rem);
-    }
-    
-    #heading #secondh1 {
-        margin-left: 15rem;
-    }
-    
-    #chatbot-container {
-        width: 70vh;
-        height: 60vh;
-    }
-    
-    .progress-grid {
-        gap: 2.5rem;
-    }
-    
-    .progress-card {
-        padding: 3rem;
-    }
-}
-
-@media (hover: none) and (pointer: coarse) {
-    .choice-btn, button, .timer-buttons button {
-        min-height: 44px;
-        min-width: 44px;
-    }
-    
-    .task-item {
-        padding: 1.25rem;
-    }
-}
-
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .blob {
-        width: 425px;
-    }
-}
-
-
-@media (prefers-color-scheme: dark) {
-   
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
 }
