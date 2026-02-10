@@ -788,426 +788,713 @@ body{
       color:#ccc;
     }
 
-
-@media (max-width: 1024px) {
-    #nav {
-        flex-wrap: wrap;
-        padding: 15px 20px;
-    }
-    
-    #nav a {
-        font-size: 16px;
-        margin: 5px;
-    }
-    
-    #streakbadge {
-        top: 15px;
-        right: 20px;
-        font-size: 14px;
-    }
-    
-    #heading h1 {
-        font-size: clamp(4rem, 8vw, 6rem);
-        margin-left: 20px;
-    }
-    
-    #heading #secondh1 {
-        margin-left: 150px;
-    }
-    
-    .bottom-area {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    #skill-box, #cost-counter {
-        width: 100%;
-    }
-    
-    .chat-layout {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-    
-    #info-section {
-        width: 100%;
-        text-align: center;
-    }
-    
-    #timer {
-        width: 95vw;
-        padding: 1rem;
-    }
-    
-    .progress-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+/* Base Mobile Styles (320px and up) */
+* {
+    box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Navigation - Mobile First */
+#nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#nav a {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Streak Badge - Mobile */
+#streakbadge {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    z-index: 101;
+}
+
+/* Hero Section - Mobile */
+#hero {
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#heading {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+#heading h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    margin: 0;
+    line-height: 0.9;
+}
+
+#heading #secondh1 {
+    margin-left: 0;
+    display: block;
+    margin-top: 1rem;
+}
+
+#herofooter {
+    position: relative;
+    bottom: auto;
+    margin-top: auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+#herofooter h6 {
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+#herofooter .circle {
+    display: none;
+}
+
+/* Second Section - Mobile */
+#second {
+    padding: 2rem 1rem;
+    min-height: auto;
+}
+
+.element {
+    padding: 1.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.element h1 {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+    margin: 0;
+}
+
+/* About Section - Mobile */
+#about {
+    padding: 2rem 1rem;
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+}
+
+#intro h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 100%;
+}
+
+/* Text Section - Mobile */
+#text {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+#text h5 {
+    font-size: 0.875rem;
+}
+
+/* Chatbot - Mobile */
+#chatbot-area {
+    padding: 2rem 1rem;
+    min-height: auto;
+}
+
+#chatbot-area h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.chat-layout {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#chatbot-container {
+    width: 100%;
+    height: 60vh;
+    max-height: 500px;
+}
+
+#info-section {
+    width: 100%;
+    text-align: center;
+}
+
+.chat-heading h3 {
+    font-size: 1.125rem;
+}
+
+.choice-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin: 0.25rem;
+}
+
+/* Tracker Section - Mobile */
+#tracker-section {
+    padding: 2rem 1rem;
+    min-height: auto;
+}
+
+.task-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tracker-intro {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.bottom-area {
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#skill-box, #cost-counter {
+    width: 100%;
+}
+
+.task-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.add-task-row {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cost-input-row {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Timer Section - Mobile */
+#focus-mode-section {
+    padding: 2rem 1rem;
+    min-height: auto;
+}
+
+#focus-title h4 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#timer {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#pomodoro-timer, #manual-timer {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#pomodoro-timer h3, #manual-display {
+    font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.timer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.timer-buttons button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Progress Section - Mobile */
+.progress-page {
+    padding: 2rem 1rem;
+}
+
+.progress-page h1 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.subtext {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+}
+
+.progress-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.progress-card {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.progress-card h3 {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-card .value {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+}
+
+.journal {
+    padding: 1.5rem;
+}
+
+.journal h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+    margin-bottom: 1rem;
+}
+
+textarea {
+    min-height: 120px;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+}
+
+/* Tablet Styles (768px and up) */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+    
     #nav {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        background: transparent;
+        position: static;
     }
     
     #nav a {
-        font-size: 14px;
-        margin: 0;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
     }
     
     #streakbadge {
-        top: 10px;
-        right: 20px;
-        font-size: 12px;
+        top: 1.5rem;
+        right: 2rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    #heading {
+        margin-top: 6rem;
+        text-align: left;
     }
     
     #heading h1 {
         font-size: clamp(3rem, 8vw, 5rem);
-        margin-left: 15px;
     }
     
     #heading #secondh1 {
-        margin-left: 100px;
+        margin-left: 8rem;
+        display: inline;
+        margin-top: 0;
     }
     
     #herofooter {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
+        position: absolute;
+        bottom: 3%;
+        left: 2vw;
+        right: 2vw;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
     }
     
     #herofooter h6 {
-        font-size: clamp(0.6rem, 2vw, 0.8rem);
-    }
-    
-    .bottom-area {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    #skill-box, #cost-counter {
-        width: 100%;
-    }
-    
-    #chatbot-container {
-        width: 95vw;
-        height: 70vh;
-    }
-    
-    .chat-layout {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    #info-section {
-        width: 100%;
-    }
-    
-    #timer {
-        width: 95vw;
-        padding: 1rem;
-    }
-    
-    .progress-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    #focus-mode-section {
-        padding: 10px;
-        height: auto;
-        min-height: 100vh;
-    }
-    
-    #focus-title h4 {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-    }
-    
-    .element {
-        padding: 2rem 1rem;
-    }
-    
-    #about {
-        padding: 2rem;
-        padding-left: 1rem;
-        height: auto;
-        min-height: 60vh;
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    #intro h2 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-    }
-    
-    #about p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    
-    .tracker-desc {
-        font-size: 0.9rem;
-    }
-    
-    #chatbot-area h2 {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
-    
-    .chat-heading h3 {
-        font-size: clamp(1rem, 3vw, 1.5rem);
-    }
-    
-    #pomodoro-timer h3, #manual-display {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    
-    .timer-buttons {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    
-    .timer-buttons button {
-        font-size: 0.8rem;
-        padding: 6px 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    #nav {
-        padding: 10px 15px;
-    }
-    
-    #nav a {
-        font-size: 12px;
-    }
-    
-    #streakbadge {
-        top: 8px;
-        right: 15px;
-        font-size: 10px;
-        padding: 4px 8px;
-    }
-    
-    #heading h1 {
-        font-size: clamp(2rem, 10vw, 4rem);
-        margin-left: 10px;
-    }
-    
-    #heading #secondh1 {
-        margin-left: 80px;
-    }
-    
-    #herofooter {
-        flex-direction: column;
-        gap: 8px;
-        padding: 0 5vw;
-    }
-    
-    #herofooter h6 {
-        font-size: 0.7rem;
+        font-size: 0.875rem;
     }
     
     #herofooter .circle {
-        width: 20px;
-        height: 20px;
+        display: flex;
+        width: 25px;
+        height: 25px;
     }
     
     #second {
-        padding: 15px 3vw 15px 3vw;
-        min-height: 15vh;
+        padding: 3rem 5vw;
     }
     
     .element {
-        padding: 1.5rem 1rem;
+        padding: 2rem 3vw;
+        text-align: left;
     }
     
     .element h1 {
-        font-size: clamp(1.2rem, 4vw, 2rem);
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
     }
     
     #about {
-        padding: 1.5rem;
-        padding-left: 1rem;
-        min-height: 50vh;
+        padding: 3rem 5vw;
+        padding-left: 40vw;
+        flex-direction: row;
+        text-align: left;
     }
     
     #intro h2 {
-        font-size: 1.2rem;
+        font-size: clamp(1.5rem, 4vw, 2rem);
     }
     
     #about p {
-        font-size: 0.9rem;
+        font-size: 1.125rem;
     }
     
-    #text {
-        padding: 15px 20px;
+    #chatbot-area {
+        padding: 3rem 2vw;
     }
     
-    #text h5 {
-        font-size: 12px;
+    #chatbot-area h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        text-align: left;
+    }
+    
+    .chat-layout {
+        flex-direction: row;
+        gap: 3rem;
     }
     
     #chatbot-container {
-        width: 95vw;
-        height: 60vh;
+        width: 80vh;
+        height: 70vh;
+        max-height: none;
     }
     
-    .chat-heading {
-        padding: 15px;
+    #info-section {
+        width: 250px;
+        text-align: left;
     }
     
-    #chat-body {
-        margin: 2vh;
+    .tracker-section {
+        padding: 2rem 2vw;
     }
     
-    .choice-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+    .bottom-area {
+        flex-direction: row;
+        gap: 3rem;
     }
     
-    #tracker-section {
-        padding: 1rem;
-        padding-top: 2rem;
-    }
-    
-    .task-title {
-        font-size: 1.8rem;
-    }
-    
-    .tracker-intro {
-        font-size: 2rem;
+    #skill-box, #cost-counter {
+        width: 48%;
     }
     
     .task-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 0.8rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
     }
     
     .add-task-row {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 1rem;
     }
     
     .cost-input-row {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    #focus-mode-section {
+        padding: 3rem 2vw;
+    }
+    
+    #focus-title h4 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        text-align: left;
     }
     
     #timer {
-        width: 95vw;
-        padding: 0.8rem;
-    }
-    
-    .timer-buttons {
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-    
-    .timer-buttons button {
-        font-size: 0.7rem;
-        padding: 5px 10px;
+        width: 80%;
+        margin: 0 auto 2rem;
     }
     
     #pomodoro-timer, #manual-timer {
-        padding: 15px;
+        width: 85%;
+        margin: 0 auto 1.5rem;
     }
     
     #pomodoro-timer h3, #manual-display {
-        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
     }
     
-    #manual-input {
-        padding: 0.4rem;
-        font-size: 0.9rem;
+    .timer-buttons {
+        display: flex;
+        gap: 1rem;
     }
     
     .progress-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
     .progress-card {
-        padding: 15px;
+        padding: 2rem;
     }
     
     .progress-card h3 {
-        font-size: 0.9rem;
-    }
-    
-    .progress-card .value {
-        font-size: 1.5rem;
-    }
-    
-    .journal {
-        padding: 20px;
-    }
-    
-    .journal h2 {
-        font-size: 1.5rem;
-    }
-    
-    textarea {
-        min-height: 120px;
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-    
-    button {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
-    
-    .entry {
-        padding: 10px;
-        font-size: 0.8rem;
-    }
-    
-    .footer {
-        font-size: 0.8rem;
-        height: 15vh;
-    }
-}
-
-@media (max-width: 320px) {
-    #heading h1 {
-        font-size: clamp(1.5rem, 12vw, 3rem);
-    }
-    
-    #heading #secondh1 {
-        margin-left: 60px;
-    }
-    
-    .element h1 {
-        font-size: clamp(1rem, 5vw, 1.5rem);
-    }
-    
-    #intro h2 {
         font-size: 1rem;
     }
     
+    .progress-card .value {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+    html {
+        font-size: 16px;
+    }
+    
+    #nav {
+        padding: 1.25rem 3rem;
+    }
+    
+    #nav a {
+        font-size: 1.125rem;
+    }
+    
+    #streakbadge {
+        top: 1.5rem;
+        right: 3rem;
+        font-size: 1rem;
+    }
+    
+    #heading {
+        margin-top: 8rem;
+    }
+    
+    #heading h1 {
+        font-size: clamp(4rem, 10vw, 8rem);
+    }
+    
+    #heading #secondh1 {
+        margin-left: 12rem;
+    }
+    
+    #herofooter h6 {
+        font-size: 1rem;
+    }
+    
+    #herofooter .circle {
+        width: 30px;
+        height: 30px;
+    }
+    
+    #second {
+        padding: 4rem 10vw;
+    }
+    
+    .element {
+        padding: 3rem 5vw;
+    }
+    
+    .element h1 {
+        font-size: clamp(2rem, 5vw, 4rem);
+    }
+    
+    #about {
+        padding: 5vw 5vw;
+        padding-left: 40vw;
+    }
+    
+    #intro h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+    
     #about p {
-        font-size: 0.8rem;
+        font-size: 1.25rem;
+    }
+    
+    #chatbot-area {
+        padding: 4rem 3vw;
+    }
+    
+    #chatbot-area h2 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+    
+    .chat-layout {
+        gap: 4rem;
+    }
+    
+    #chatbot-container {
+        width: 80vh;
+        height: 70vh;
+    }
+    
+    .tracker-section {
+        padding: 2.5rem 3vw;
     }
     
     .task-title {
-        font-size: 1.5rem;
+        font-size: clamp(2rem, 6vw, 3rem);
     }
     
     .tracker-intro {
-        font-size: 1.8rem;
+        font-size: clamp(1.75rem, 5vw, 3rem);
     }
     
-    .progress-card .value {
-        font-size: 1.2rem;
+    #focus-mode-section {
+        padding: 4rem 3vw;
+    }
+    
+    #focus-title h4 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+    
+    #timer {
+        width: 70%;
+    }
+    
+    #pomodoro-timer, #manual-timer {
+        width: 85%;
     }
     
     #pomodoro-timer h3, #manual-display {
-        font-size: 1.2rem;
+        font-size: clamp(3rem, 7vw, 4rem);
+    }
+    
+    .progress-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    
+    .progress-card {
+        padding: 2.5rem;
+    }
+    
+    .progress-card h3 {
+        font-size: 1.125rem;
+    }
+    
+    .progress-card .value {
+        font-size: clamp(2.5rem, 6vw, 3rem);
+    }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+    html {
+        font-size: 18px;
+    }
+    
+    #nav {
+        padding: 1.5rem 4rem;
+    }
+    
+    #nav a {
+        font-size: 1.25rem;
+    }
+    
+    #heading h1 {
+        font-size: clamp(5rem, 12vw, 10rem);
+    }
+    
+    #heading #secondh1 {
+        margin-left: 15rem;
+    }
+    
+    #chatbot-container {
+        width: 70vh;
+        height: 60vh;
+    }
+    
+    .progress-grid {
+        gap: 2.5rem;
+    }
+    
+    .progress-card {
+        padding: 3rem;
+    }
+}
+
+/* Touch and Accessibility Improvements */
+@media (hover: none) and (pointer: coarse) {
+    .choice-btn, button, .timer-buttons button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .task-item {
+        padding: 1.25rem;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .blob {
+        width: 425px;
+    }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+    /* Already dark theme - no changes needed */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
