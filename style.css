@@ -788,7 +788,64 @@ body{
       color:#ccc;
     }
 
-/* Mobile Responsive Design */
+
+@media (max-width: 1024px) {
+    #nav {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    
+    #nav a {
+        font-size: 16px;
+        margin: 5px;
+    }
+    
+    #streakbadge {
+        top: 15px;
+        right: 20px;
+        font-size: 14px;
+    }
+    
+    #heading h1 {
+        font-size: clamp(4rem, 8vw, 6rem);
+        margin-left: 20px;
+    }
+    
+    #heading #secondh1 {
+        margin-left: 150px;
+    }
+    
+    .bottom-area {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    #skill-box, #cost-counter {
+        width: 100%;
+    }
+    
+    .chat-layout {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    #info-section {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #timer {
+        width: 95vw;
+        padding: 1rem;
+    }
+    
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     #nav {
         flex-direction: column;
@@ -798,6 +855,7 @@ body{
     
     #nav a {
         font-size: 14px;
+        margin: 0;
     }
     
     #streakbadge {
@@ -807,12 +865,22 @@ body{
     }
     
     #heading h1 {
-        font-size: clamp(3rem, 8vw, 6rem);
+        font-size: clamp(3rem, 8vw, 5rem);
         margin-left: 15px;
     }
     
     #heading #secondh1 {
         margin-left: 100px;
+    }
+    
+    #herofooter {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    #herofooter h6 {
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
     }
     
     .bottom-area {
@@ -867,39 +935,34 @@ body{
         padding-left: 1rem;
         height: auto;
         min-height: 60vh;
+        flex-direction: column;
+        text-align: center;
     }
     
     #intro h2 {
         font-size: 1.5rem;
+        margin-bottom: 15px;
     }
     
     #about p {
         font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #herofooter {
-        flex-direction: column;
-        gap: 10px;
+        line-height: 1.6;
     }
     
-    #herofooter h6 {
-        font-size: 0.8rem;
+    .tracker-desc {
+        font-size: 0.9rem;
     }
     
-    .task-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    #chatbot-area h2 {
+        font-size: clamp(2rem, 6vw, 3rem);
     }
     
-    .add-task-row {
-        flex-direction: column;
+    .chat-heading h3 {
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
     
-    .cost-input-row {
-        flex-direction: column;
+    #pomodoro-timer h3, #manual-display {
+        font-size: clamp(1.5rem, 4vw, 2rem);
     }
     
     .timer-buttons {
@@ -910,5 +973,241 @@ body{
     .timer-buttons button {
         font-size: 0.8rem;
         padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav {
+        padding: 10px 15px;
+    }
+    
+    #nav a {
+        font-size: 12px;
+    }
+    
+    #streakbadge {
+        top: 8px;
+        right: 15px;
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    #heading h1 {
+        font-size: clamp(2rem, 10vw, 4rem);
+        margin-left: 10px;
+    }
+    
+    #heading #secondh1 {
+        margin-left: 80px;
+    }
+    
+    #herofooter {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 5vw;
+    }
+    
+    #herofooter h6 {
+        font-size: 0.7rem;
+    }
+    
+    #herofooter .circle {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #second {
+        padding: 15px 3vw 15px 3vw;
+        min-height: 15vh;
+    }
+    
+    .element {
+        padding: 1.5rem 1rem;
+    }
+    
+    .element h1 {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+    }
+    
+    #about {
+        padding: 1.5rem;
+        padding-left: 1rem;
+        min-height: 50vh;
+    }
+    
+    #intro h2 {
+        font-size: 1.2rem;
+    }
+    
+    #about p {
+        font-size: 0.9rem;
+    }
+    
+    #text {
+        padding: 15px 20px;
+    }
+    
+    #text h5 {
+        font-size: 12px;
+    }
+    
+    #chatbot-container {
+        width: 95vw;
+        height: 60vh;
+    }
+    
+    .chat-heading {
+        padding: 15px;
+    }
+    
+    #chat-body {
+        margin: 2vh;
+    }
+    
+    .choice-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    #tracker-section {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+    
+    .task-title {
+        font-size: 1.8rem;
+    }
+    
+    .tracker-intro {
+        font-size: 2rem;
+    }
+    
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 0.8rem;
+    }
+    
+    .add-task-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cost-input-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #timer {
+        width: 95vw;
+        padding: 0.8rem;
+    }
+    
+    .timer-buttons {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .timer-buttons button {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+    
+    #pomodoro-timer, #manual-timer {
+        padding: 15px;
+    }
+    
+    #pomodoro-timer h3, #manual-display {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+    
+    #manual-input {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+    
+    .progress-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .progress-card {
+        padding: 15px;
+    }
+    
+    .progress-card h3 {
+        font-size: 0.9rem;
+    }
+    
+    .progress-card .value {
+        font-size: 1.5rem;
+    }
+    
+    .journal {
+        padding: 20px;
+    }
+    
+    .journal h2 {
+        font-size: 1.5rem;
+    }
+    
+    textarea {
+        min-height: 120px;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .entry {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .footer {
+        font-size: 0.8rem;
+        height: 15vh;
+    }
+}
+
+@media (max-width: 320px) {
+    #heading h1 {
+        font-size: clamp(1.5rem, 12vw, 3rem);
+    }
+    
+    #heading #secondh1 {
+        margin-left: 60px;
+    }
+    
+    .element h1 {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+    }
+    
+    #intro h2 {
+        font-size: 1rem;
+    }
+    
+    #about p {
+        font-size: 0.8rem;
+    }
+    
+    .task-title {
+        font-size: 1.5rem;
+    }
+    
+    .tracker-intro {
+        font-size: 1.8rem;
+    }
+    
+    .progress-card .value {
+        font-size: 1.2rem;
+    }
+    
+    #pomodoro-timer h3, #manual-display {
+        font-size: 1.2rem;
     }
 }
