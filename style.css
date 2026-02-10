@@ -1297,7 +1297,7 @@ button {
     }
 }
 
-/* Desktop Styles (1024px and up) */
+
 @media (min-width: 1024px) {
     html {
         font-size: 16px;
@@ -1430,7 +1430,7 @@ button {
     }
 }
 
-/* Large Desktop (1440px and up) */
+
 @media (min-width: 1440px) {
     html {
         font-size: 18px;
@@ -1466,7 +1466,6 @@ button {
     }
 }
 
-/* Touch and Accessibility Improvements */
 @media (hover: none) and (pointer: coarse) {
     .choice-btn, button, .timer-buttons button {
         min-height: 44px;
@@ -1478,19 +1477,19 @@ button {
     }
 }
 
-/* High DPI Displays */
+
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .blob {
         width: 425px;
     }
 }
 
-/* Dark Mode Support (if needed) */
+
 @media (prefers-color-scheme: dark) {
-    /* Already dark theme - no changes needed */
+   
 }
 
-/* Reduced Motion */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
